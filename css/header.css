@@ -1,0 +1,271 @@
+.header{
+    height: 110px;
+    background-color: #D9E2C3;
+}
+
+.header__navbar{
+    display: flex;
+    justify-content: space-between;
+}
+
+.header__navbar-list{
+    list-style: none;
+    padding-left: 0;
+    margin-top: 5px;
+}
+
+.header__navbar-item{
+    position: relative;
+    margin: 0 5px;
+}
+
+.header__navbar-item,
+.header__navbar-item-link{
+    display: inline-block;
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: var(--white-black);
+    font-weight: 300;
+}
+
+.header__navbar-icon-link,
+.header__navbar-item,
+.header__navbar-item-link{
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+
+}
+
+
+.header__navbar-item:hover,
+.header__navbar-item-link:hover,
+.header__navbar-icon-link:hover{
+    cursor: pointer;
+    color: #aaa;
+
+}
+
+.header__navbar-item--strong{
+    font-weight: 400;
+}
+
+.header__navbar-item--separate::after{
+    content: "";
+    display: block;
+    position: absolute;
+    height: 12px;
+    border-left: 1px solid #fb9086;
+    right: -8px;
+    top: 50%;
+    transform: translateY(-50%);
+
+}
+
+.header__navbar-icon-link{
+    color: var(--white-black);
+}
+
+.header__navbar-icon{
+    font-size: 1.6rem;
+    margin: 0 2px;
+}
+
+.header__navbar-item-title--no-poiter{
+    cursor: text;
+}
+
+.header__cart-item{
+    display: flex;
+    position: relative;
+}
+
+
+/* header__navbar-with-search */
+.header-with-search{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header__logo{
+    width: 20%;
+}
+.navbar__list{
+    width: 60%;
+    z-index: 1;
+}
+.header__logo-link{
+    text-decoration: none;
+}
+
+.navbar__list-item-name,
+.header__cart-icon,
+.header__cart-icon-link{
+    position: relative;
+    font-size: 2.2rem;
+    color: black;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+}
+
+.navbar__list-item-name,
+.header__cart-icon{
+    margin: 0 10px;
+
+}
+
+.header__cart-icon a{
+    color: black;
+}
+
+
+/* underline text hover */
+.navbar__list-item-link{
+    list-style: none;
+    color: #000;
+    position: relative;
+    text-decoration: none;
+    transition: .3s;
+}
+.navbar__list-item-link::before{
+    content: '';
+    background-color: hsl(200 100% 80%) ;
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0;
+    height: 2px;
+    transition: .3s ease;
+}
+.navbar__list-item-link:hover::before{
+    content: "";
+    position: absolute;
+    background-color: hsl(200 100% 80%) ;
+    transition: .3s ;
+    width: 100%;
+    left: 0;
+    height: 2.5px;
+}
+/*Header notifications */
+.header__navbar-item--has-notify:hover .header__notify{
+    display: block;
+}
+.header__notify{
+    position: absolute;
+    top: 100%;
+    width: 340px;
+    background-color: var(--white-color);
+    right: 0;
+    border: 2px solid #D3D3D3;
+    cursor: default;
+    transform-origin:  95% top;
+    animation: headerNotify 0.2s ease;
+    display: none;
+    z-index: 2;
+}
+
+@keyframes headerNotify{
+    from{
+        transform: scale(0);
+    }
+    to{
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+.header__notify-header{
+    height: 40x;
+}
+.header__notify-header h3{
+    color: #666;
+    margin: 5px;
+    margin-bottom: 6px;
+    font-size: 1.4rem;
+}
+
+.header__notify-list{
+    padding-left: 0;
+}
+
+.header__notify-item{
+    display: flex;
+    width: 100%;
+}
+
+.header__notify-item--viewed{
+    background-color: rgba(217, 226, 195, 0.3);
+}
+
+.header__notify-item:hover{
+    background-color: #f1f1f1;
+}
+
+.header__notify-link{
+    display: flex;
+    padding: 6px 0;
+    text-decoration: none;
+    width: 100%;
+    padding-left: 5px;
+}
+
+.header__notify-info{
+    margin-left: 5px;
+
+}
+
+.header__notify-name{
+    display: block;
+    font-size: 1.4rem;
+    color: var(--text-color);
+    line-height: 1.4rem;
+    font-weight: 650;
+}
+
+.header__notify-description{
+    display: block;
+    font-size: 1rem;
+    color: #756f6e;
+    line-height: 1.6rem;
+}
+
+/* cart-list */
+.header__cart-icon {
+    position: relative;
+}
+  
+#header__cart-list {
+    display: none;
+    position: fixed;
+    top: 0; /* đặt vị trí lên đầu trang */
+    right: 0;
+    width: 450px;
+    height: 100vh; /* đặt chiều cao bằng màn hình laptop */
+    background-color: white;
+    border: 1px solid black;
+    z-index: 1;
+    overflow: auto;
+}
+  
+.header__cart-icon-link {
+    position: relative;
+}
+
+#header__cart-shop{
+    display: flex;
+    background: #D9E2C3;
+    height: 50px;
+}
+#header__cart-shop h2{
+    display: fixed;
+    text-align: center;
+    margin: auto;
+}
+
+.header__cart-close{
+    cursor: pointer;
+    right: 0;
+    font-size: 4rem;
+    margin-left: 95%;
+}

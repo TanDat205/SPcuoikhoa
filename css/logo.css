@@ -1,0 +1,28 @@
+.header__logo{
+    cursor: pointer;
+    position: relative;
+    font-size: 4rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    line-height: 70px;
+}
+
+.name{
+    color: black;
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.6);
+}
+
+.hover-name{
+    position: absolute;
+    inset: 0;
+    width: 0%;
+    color: #1af7ff;
+    overflow: hidden;
+    border-right: 10px solid #1af7ff;
+    transition: 0.5s ease-in-out;
+}
+
+.header__logo:hover .hover-name{
+    width: 220px;
+    filter: drop-shadow(0 0 40px #1af7ff);
+}
