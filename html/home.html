@@ -111,8 +111,10 @@
                             </a>
                         </li>
 
-                        <li class="header__navbar-item header__navbar-item--strong header__navbar-item--separate">Đăng kí</li>
-                        <li class="header__navbar-item header__navbar-item--strong">Đăng nhập</li>
+                        <li class="header__navbar-item header__navbar-item--strong header__navbar-item--separate">
+                            <a href="/html/login.html" class="header__navbar-item-link"> Đăng kí</a></li>
+                        <li class="header__navbar-item header__navbar-item--strong">
+                            <a href="/html/login.html" class="header__navbar-item-link">Đăng nhập</a></li>
                     </ul>
                 </div>
 
@@ -152,34 +154,12 @@
                     <div class="header__cart">
                         <ul class="header__cart-item">
                             <li class="search-box">
-                                <input type="text" placeholder="Search here"/>
+                                <input type="text" id="searchInput" placeholder="Search here"/>
                                 <button type="submit" onclick="searchProducts()">
                                     <i class="fa-solid fa-magnifying-glass"></i>
                                 </button>
                             </li>
-                            
-                            <script src="/js/article.js"></script>
 
-                            <li class="header__cart-icon">
-                                <a href="./login.html">
-                                    <i class="fa-solid fa-user"></i>
-                                </a>  
-                            </li>
-                            <!-- <script>
-                                window.onload = function() {
-                                  var link = document.querySelector(".header__cart-icon-link");
-                                  var list = document.getElementById("header__cart-list");
-                                  var close = document.querySelector(".header__cart-close"); 
-                                  link.addEventListener("click", function(event) {
-                                    event.preventDefault();
-                                    if (list.style.display == "none") {
-                                      list.style.display = "block";
-                                    } else {
-                                      list.style.display = "none";
-                                    }
-                                  });
-                                };
-                            </script> -->
                             <li class="header__cart-icon">
                                 <a href="" class="header__cart-icon-link">
                                     <i class="fa-solid fa-cart-shopping"></i>
@@ -193,8 +173,6 @@
                                         <h1>Your Cart is Empty</h1>
                                     </div>
                                 </div>
-
-
                                 <script> 
                                 window.onload = function() { 
                                     var link = document.querySelector(".header__cart-icon-link"); 
@@ -221,25 +199,33 @@
         </header>
 
         <div class="article">
-            <main class="content">
+            <script src="/js/article.js"></script>
                 <div class="banner">
                     <img class="banner-img" src="/img/background.jpg" alt="" width="100%">
                     <div class="banner-title">
                         <p>Your Desktop</p> <br> <p>Simplified</p>
                     </div>
                 </div>
+
+            <div class="content">
                 <div class="article-text">
                     The New Collection
                 </div>
-                <div class="search-results">
-                    <!-- Kết quả tìm kiếm sẽ được hiển thị ở đây -->
+                <div id="productContainer">
+                    <!-- Các sản phẩm sẽ được hiển thị ở đây -->
                 </div>
-                
-
-            </main>
+                <div id="notFoundMessage" class="not-found-message">Không tìm thấy sản phẩm</div>
+                <script src="/js/article.js"></script>                
+            </div>
         </div>
 
+
         <footer class="py-5">
+            <style>
+                .py-5{
+                    background-color: #D9E2C3;
+                }
+            </style>
             <div class="row">
               <div class="col-6 col-md-2 mb-3">
                 <h5>Section</h5>
@@ -296,8 +282,6 @@
               </ul>
             </div>
           </footer>
-        
-        
-    </div>   
+    </div>  
 </body>
 </html>
