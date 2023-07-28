@@ -19,16 +19,17 @@
     font-size: 5rem;
 }
 
-/* search-results */
-.search-results {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content:flex-start;
-    margin: 20px;
+#notFoundMessage{
+    display: none;
 }
-.product{
-    height: 250px;
-    width: 200px;
-    border: 2px solid;
-    margin: 10px 20px;
+
+
+#productContainer{
+    display: flex;
+}
+.product-card{
+    width: 20%;
+}
+.img-item{
+    width: 20%;
 }
