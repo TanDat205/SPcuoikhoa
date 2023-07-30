@@ -1,18 +1,125 @@
 var products = [
   {
-    name: "Sản phẩm 1",
+    name: "The Complete Gather Collection",
+    image: "/img/The Complete Gather Collection.png",
+    price: "30$",
+  },
+  {
+    name: "Large Monitor Stand",
+    image: "/img/Large Monitor Stand.png",
+    price: "30$",
+  },
+  {
+    name: "Headphone Stand",
     image: "/img/Headphone Stand.png",
-    description: "Mô tả sản phẩm 1",
+    price: "30$",
+  },
+  {
+    name: "Laptop Stand",
+    image: "/img/Laptop Stand.png",
+    price: "30$",
+  },
+  
+  {
+    name: "MagSafe Phone Stand",
+    image: "/img/MagSafe Phone Stand.png",
+    price: "30$",
+  },
+  {
+    name: "Organizer Set",
+    image: "/img/Organizer Set.png",
+    price: "30$",
   },
   {
     name: "Sản phẩm 2",
     image: "link_anh_san_pham_2.jpg",
-    description: "Mô tả sản phẩm 2",
+    price: "30$",
+  },
+  {
+    name: "Sản phẩm 2",
+    image: "link_anh_san_pham_2.jpg",
+    price: "30$",
+  },
+  {
+    name: "Sản phẩm 2",
+    image: "link_anh_san_pham_2.jpg",
+    price: "30$",
+  },
+  {
+    name: "Sản phẩm 2",
+    image: "link_anh_san_pham_2.jpg",
+    price: "30$",
+  },
+  {
+    name: "Sản phẩm 2",
+    image: "link_anh_san_pham_2.jpg",
+    price: "30$",
+  },
+  {
+    name: "Sản phẩm 2",
+    image: "link_anh_san_pham_2.jpg",
+    price: "30$",
+  },
+  {
+    name: "Sản phẩm 2",
+    image: "link_anh_san_pham_2.jpg",
+    price: "30$",
+  },
+  {
+    name: "Sản phẩm 2",
+    image: "link_anh_san_pham_2.jpg",
+    price: "30$",
+  },
+
+  {
+    name: "Sản phẩm 2",
+    image: "link_anh_san_pham_2.jpg",
+    price: "30$",
+  },
+  {
+    name: "Sản phẩm 2",
+    image: "link_anh_san_pham_2.jpg",
+    price: "30$",
+  },
+  {
+    name: "Sản phẩm 2",
+    image: "link_anh_san_pham_2.jpg",
+    price: "30$",
+  },
+  {
+    name: "Sản phẩm 2",
+    image: "link_anh_san_pham_2.jpg",
+    price: "30$",
+  },
+  {
+    name: "Sản phẩm 2",
+    image: "link_anh_san_pham_2.jpg",
+    price: "30$",
+  },
+  {
+    name: "Sản phẩm 2",
+    image: "link_anh_san_pham_2.jpg",
+    price: "30$",
+  },
+  {
+    name: "Sản phẩm 2",
+    image: "link_anh_san_pham_2.jpg",
+    price: "30$",
+  },
+  {
+    name: "Sản phẩm 2",
+    image: "link_anh_san_pham_2.jpg",
+    price: "30$",
+  },
+  {
+    name: "Sản phẩm 2",
+    image: "link_anh_san_pham_2.jpg",
+    price: "30$",
   },
   {
     name: "Sản phẩm 3",
     image: "link_anh_san_pham_3.jpg",
-    description: "Mô tả sản phẩm 3",
+    price: "30$",
   }
 ];
 
@@ -37,10 +144,10 @@ function displayProducts(productsToShow) {
     productName.textContent = product.name;
     productCard.appendChild(productName);
 
-    var productDescription = document.createElement("p");
-    productDescription.className = "description-item"
-    productDescription.textContent = product.description;
-    productCard.appendChild(productDescription);
+    var productPrice = document.createElement("p");
+    productPrice.className = "price-item"
+    productPrice.textContent = product.price;
+    productCard.appendChild(productPrice);
 
     // Thêm sản phẩm vào container
     productContainer.appendChild(productCard);
