@@ -2,21 +2,25 @@ var products = [
   {
     name: "The Complete Gather Collection",
     image: "/img/The Complete Gather Collection.png",
+    hover: "/",
     price: "30$",
   },
   {
     name: "Large Monitor Stand",
     image: "/img/Large Monitor Stand.png",
+    hover: "/",
     price: "30$",
   },
   {
     name: "Headphone Stand",
     image: "/img/Headphone Stand.png",
+    hover: "/img/Headphone Stand (2).png",
     price: "30$",
   },
   {
     name: "Laptop Stand",
     image: "/img/Laptop Stand.png",
+    hover: "/",
     price: "30$",
   },
   
@@ -70,57 +74,6 @@ var products = [
     image: "/img/Gather Solid Wood Lid.png",
     price: "30$",
   },
-
-  {
-    name: "Sản phẩm 2",
-    image: "link_anh_san_pham_2.jpg",
-    price: "30$",
-  },
-  {
-    name: "Sản phẩm 2",
-    image: "link_anh_san_pham_2.jpg",
-    price: "30$",
-  },
-  {
-    name: "Sản phẩm 2",
-    image: "link_anh_san_pham_2.jpg",
-    price: "30$",
-  },
-  {
-    name: "Sản phẩm 2",
-    image: "link_anh_san_pham_2.jpg",
-    price: "30$",
-  },
-  {
-    name: "Sản phẩm 2",
-    image: "link_anh_san_pham_2.jpg",
-    price: "30$",
-  },
-  {
-    name: "Sản phẩm 2",
-    image: "link_anh_san_pham_2.jpg",
-    price: "30$",
-  },
-  {
-    name: "Sản phẩm 2",
-    image: "link_anh_san_pham_2.jpg",
-    price: "30$",
-  },
-  {
-    name: "Sản phẩm 2",
-    image: "link_anh_san_pham_2.jpg",
-    price: "30$",
-  },
-  {
-    name: "Sản phẩm 2",
-    image: "link_anh_san_pham_2.jpg",
-    price: "30$",
-  },
-  {
-    name: "Sản phẩm 3",
-    image: "link_anh_san_pham_3.jpg",
-    price: "30$",
-  }
 ];
 
 // Lặp qua mảng sản phẩm và hiển thị chúng trong thẻ div có id="productContainer"
@@ -138,6 +91,11 @@ function displayProducts(productsToShow) {
     productImage.className = "img-item";
     productImage.src = product.image;
     productCard.appendChild(productImage);
+
+    var productHover = document.createElement("img");
+    productHover.className = "hover-image";
+    productHover.src = product.hover;
+    productCard.appendChild(productHover);
 
     var productName = document.createElement("h2");
     productName.className = "name-item";
