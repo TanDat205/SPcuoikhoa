@@ -46,28 +46,28 @@ var products = [
     price: "30$",
   },
   {
-    name: "Sản phẩm 2",
-    image: "link_anh_san_pham_2.jpg",
+    name: "charcoal",
+    image: "/img/hmm-charcoal-1.webp",
     price: "30$",
   },
   {
-    name: "Sản phẩm 2",
-    image: "link_anh_san_pham_2.jpg",
+    name: "Valet Tray",
+    image: "/img/Valet Tray.png",
     price: "30$",
   },
   {
-    name: "Sản phẩm 2",
-    image: "link_anh_san_pham_2.jpg",
+    name: "Gather Note Tray",
+    image: "/img/Gather Note Tray.png",
     price: "30$",
   },
   {
-    name: "Sản phẩm 2",
-    image: "link_anh_san_pham_2.jpg",
+    name: "Gather Wood Zigzag Tray",
+    image: "/img/Gather Wood Zigzag Tray.png",
     price: "30$",
   },
   {
-    name: "Sản phẩm 2",
-    image: "link_anh_san_pham_2.jpg",
+    name: "Gather Solid Wood Lid",
+    image: "/img/Gather Solid Wood Lid.png",
     price: "30$",
   },
 
