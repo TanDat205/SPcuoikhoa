@@ -57,6 +57,6 @@
     opacity: 0; /* Khi hover, ẩn ảnh gốc */
   }
   
-  /* .image-container:hover .hover-image {
-    opacity: 1; /* Khi hover, hiển thị ảnh khi hover 
-  } */
+  .image-container:hover .hover-image {
+    opacity: 1; 
+  }
