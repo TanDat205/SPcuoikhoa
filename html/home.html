@@ -24,6 +24,23 @@
     
         <link rel="Shortcut Icon" href="/img/my.jpg" type="image/jpg">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+        <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-analytics.js"></script>
+        
+        <script>
+            const firebaseConfig = {
+            apiKey: "AIzaSyArBrdLuZYN-Uof_cUSKt2vzdxlsAS3aH8",
+            authDomain: "final-project-2ad0c.firebaseapp.com",
+            projectId: "final-project-2ad0c",
+            storageBucket: "final-project-2ad0c.appspot.com",
+            messagingSenderId: "150558453449",
+            appId: "1:150558453449:web:1990d593fe902db7efe718",
+            measurementId: "G-KEDN75H6QC"
+        };
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        </script>
     </head>
 <body>
     <div class="app">
@@ -111,7 +128,7 @@
                         </li>
 
                         <li class="header__navbar-item header__navbar-item--strong header__navbar-item--separate">
-                            <a href="/html/login.html" class="header__navbar-item-link"> Đăng kí</a></li>
+                            <a href="/html/register.html" class="header__navbar-item-link"> Đăng kí</a></li>
                         <li class="header__navbar-item header__navbar-item--strong">
                             <a href="/html/login.html" class="header__navbar-item-link">Đăng nhập</a></li>
                     </ul>
