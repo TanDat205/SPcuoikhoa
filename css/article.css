@@ -21,42 +21,38 @@
 
 #notFoundMessage{
     display: none;
+    text-align: center;
+    font-size: 15px;
 }
 
 
 #productContainer{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-    max-width: 1000px;
-    margin: 0 auto;
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(100px, 300px));
+  gap: 10px;
+  margin-left: 20px;
 }
-.image-container {
-    position: relative;
-    width: 300px; /* Đổi kích thước tùy ý */
-    height: 200px; /* Đổi kích thước tùy ý */
-    overflow: hidden;
-  }
-  
-  .img-item {
-    width: 100%;
-    transition: opacity 0.3s ease; /* Hiệu ứng chuyển đổi opacity */
-  }
-  
-  .hover-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 0;
-    width: 100%;
-    height: 100%;
-    transition: opacity 0.3s ease; /* Hiệu ứng hiển thị ảnh khi hover */
-  }
-  
-  .image-container:hover .img-item {
-    opacity: 0; /* Khi hover, ẩn ảnh gốc */
-  }
-  
-  .image-container:hover .hover-image {
-    opacity: 1; 
-  }
+
+.product-card {
+  margin: auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.img-item  {
+  width: 100%;
+}
+
+.hover-image {
+  width: 100%;
+  display: none;
+}
+
+.product-card:hover .hover-image {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: .3s ease;
+}

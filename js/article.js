@@ -20,13 +20,14 @@ var products = [
   {
     name: "Laptop Stand",
     image: "/img/Laptop Stand.png",
-    hover: "/",
+    hover: "/img/Laptop Stand (2).png",
     price: "30$",
   },
   
   {
     name: "MagSafe Phone Stand",
     image: "/img/MagSafe Phone Stand.png",
+    hover: "/img/MagSafe Phone Stand (2).png",
     price: "30$",
   },
   {
@@ -123,7 +124,9 @@ searchInput.addEventListener("input", function() {
 
   if (filteredProducts.length === 0) {
     notFoundMessage.style.display = "block";
-    document.getElementById("productContainer").innerHTML = ""; // Xóa các sản phẩm hiện tại khi không tìm thấy kết quả
+    document.getElementById("productContainer").innerHTML = "";
+    document.querySelector('.banner').innerHTML = "";
+    // Xóa các sản phẩm hiện tại khi không tìm thấy kết quả
   } else {
     notFoundMessage.style.display = "none";
     displayProducts(filteredProducts);
