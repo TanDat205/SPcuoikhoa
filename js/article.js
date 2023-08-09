@@ -115,6 +115,8 @@ function displayProducts(productsToShow) {
 
 var searchInput = document.getElementById("searchInput");
 var notFoundMessage = document.getElementById("notFoundMessage");
+var banner = document.getSelection(".banner")
+
 
 searchInput.addEventListener("input", function() {
   var searchTerm = searchInput.value.toLowerCase();
@@ -125,7 +127,6 @@ searchInput.addEventListener("input", function() {
   if (filteredProducts.length === 0) {
     notFoundMessage.style.display = "block";
     document.getElementById("productContainer").innerHTML = "";
-    document.querySelector('.banner').innerHTML = "";
     // Xóa các sản phẩm hiện tại khi không tìm thấy kết quả
   } else {
     notFoundMessage.style.display = "none";

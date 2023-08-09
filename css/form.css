@@ -8,30 +8,26 @@
   padding: 0;
   font: inherit;
 }
-img,
-picture,
-svg,
-video {
+img,picture,svg,video {
   display: block;
   max-width: 100%;
 }
 body {
-  min-height: 100vh;
   font-family: "Roboto", sans-serif;
+  background-color: #D9E2C3;
 }
 /* style login */
 .login {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  background: #f5f5f5;
+  margin-top: 50px;
 }
 .login__container {
+  background: #fff;
   width: 100%;
   max-width: 400px;
   padding: 20px;
-  background: #fff;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
@@ -76,22 +72,24 @@ body {
   color: #555;
 }
 .login__registerButton {
+  cursor: default;
   margin-top: 20px;
-  padding: 10px;
   border: none;
   border-radius: 5px;
   color: black;
   font-size: 1.2rem;
-  cursor: pointer;
   display: block;
+}
+.login__registerButton a:hover{
+  color: aqua;
 }
 /* style signup */
 .signup {
+  background-color: #D9E2C3;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  background: #f5f5f5;
+  margin-top: 50px;
 }
 .signup__container {
   width: 100%;
@@ -133,6 +131,7 @@ body {
   background: #555;
 }
 .signup__container form a {
+  text-decoration: none;
   text-align: center;
   font-size: 1.2rem;
   text-decoration: none;
@@ -142,12 +141,53 @@ body {
   color: #555;
 }
 .signup__registerButton {
+  display: flex;
+  text-decoration: none;
   margin-top: 20px;
-  padding: 10px;
   border: none;
   border-radius: 5px;
   color: black;
   font-size: 1.2rem;
+  cursor: default;
+}
+.signup__registerButton :hover{
+  color: aqua;
+}
+
+
+/* logo */
+.header__logo{
+  background-color: #D9E2C3;
+  width: min-content;
+  top: 10px;
+  left: 10px;
   cursor: pointer;
-  display: block;
+  position: relative;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  line-height: 50px;
+}
+
+.header__logo-link{
+  text-decoration: none;
+}
+.name{
+  color: black;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.6);
+}
+
+.hover-name{
+  position: absolute;
+  inset: 0;
+  width: 0%;
+  color: #1af7ff;
+  overflow: hidden;
+  border-right: 10px solid #1af7ff;
+  transition: 0.5s ease-in-out;
+}
+
+.header__logo:hover .hover-name{
+  width: 220px;
+  filter: drop-shadow(0 0 30px #1af7ff);
 }

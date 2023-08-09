@@ -13,9 +13,7 @@ btnLogin.addEventListener("click", (e) => {
       ) {
       alert("Blank cells cannot be empty");
     } else {
-      const user = JSON.parse(localStorage.getItem(
-        inputUsername.value
-        ));
+      const user = JSON.parse(localStorage.getItem(inputUsername.value));
       if (
         user.username === inputUsername.value &&
         user.email === inputEmail.value &&

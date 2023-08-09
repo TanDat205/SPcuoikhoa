@@ -13,7 +13,7 @@ btnRegister.addEventListener("click", (e) => {
     inputEmailRegister.value === "" ||
     inputConfirmRegister.value === "" ||
     inputPasswordRegister.value === "") {
-    alert("vui lòng không để trống");} 
+    alert("Blank cells cannot be empty");} 
     else if (
         inputPasswordRegister.value !== inputConfirmRegister.value
     )
@@ -29,7 +29,7 @@ btnRegister.addEventListener("click", (e) => {
     };
     let json = JSON.stringify(user);
     localStorage.setItem(inputUsernameRegister.value, json);
-    alert("Đăng Ký Thành Công");
-    window.location.href = "login.html";
+    alert("Successful Sign Up");
+    window.location.href = "/html/login.html";
   }
 });

@@ -35,6 +35,7 @@
 }
 
 .product-card {
+  cursor: pointer;
   margin: auto;
   position: relative;
   overflow: hidden;
@@ -54,5 +55,4 @@
   position: absolute;
   top: 0;
   left: 0;
-  transition: .3s ease;
 }
