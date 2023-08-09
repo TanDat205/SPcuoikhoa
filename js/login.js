@@ -1,28 +1,30 @@
-const labels = document.querySelectorAll('.form-control label')
-
-labels.forEach(label => {
-    label.innerHTML = label.innerText
-        .split('')
-        .map((letter, idx) => `<span style="transition-delay:${idx * 50}ms">${letter}</span>`)
-        .join('')
-})
+const inputUsername = document.querySelector(".input-login-username");
+const inputEmail = document.querySelector(".input-login-email");
+const inputPassword = document.querySelector(".input-login-password");
+const btnLogin = document.querySelector(".login__signInButton");
 
 
-function login(e){
-    event.preventDefault();
-    var username = document.getElementById("username").value;
-    var email = document.getElementById("email").value;
-    var password = document.getElementById("password").value;
-    var user = localStorage.getItem(username);
-    var data = JSON.parse(user);
-    if(user == null){
-        alert("Invalid login or password")
+btnLogin.addEventListener("click", (e) => {
+    e.preventDefault();
+    if (
+      inputUsername.value === "" || 
+      inputEmail.value === "" || 
+      inputPassword.value === ""
+      ) {
+      alert("Blank cells cannot be empty");
+    } else {
+      const user = JSON.parse(localStorage.getItem(
+        inputUsername.value
+        ));
+      if (
+        user.username === inputUsername.value &&
+        user.email === inputEmail.value &&
+        user.password === inputPassword.value
+      ) {
+        alert("Successful Login");
+        window.location.href = "/html/home.html";
+      } else {
+        alert("Login Failure");
+      }
     }
-    else if(email == data.email && password == data.password){
-        alert("Login Successfully")
-        window.location.href="/html/home.html"
-    }
-    else{
-        alert("sai")
-    }
-}
+  });

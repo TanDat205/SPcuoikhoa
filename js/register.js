@@ -1,27 +1,35 @@
+const inputUsernameRegister = document.querySelector(".input-signup-username");
+const inputEmailRegister = document.querySelector(".input-signup-email");
+const inputPasswordRegister = document.querySelector(".input-signup-password");
+const inputConfirmRegister = document.querySelector(".input-signup-confirm");
+const btnRegister = document.querySelector(".signup__signInButton");
 
-const labels = document.querySelectorAll('.form-control label')
+// validation form register and register user local storage
 
-labels.forEach(label => {
-    label.innerHTML = label.innerText
-        .split('')
-        .map((letter, idx) => `<span style="transition-delay:${idx * 50}ms">${letter}</span>`)
-        .join('')
-})
-
-function signup (e){
-    event.preventDefault();
-    var username = document.getElementById("username").value;
-    var email = document.getElementById("email").value;
-    var password = document.getElementById("password").value;
-    var user = {
-        username : username,
-        email : email,
-        password : password,
+btnRegister.addEventListener("click", (e) => {
+  e.preventDefault();
+  if (
+    inputUsernameRegister.value === "" ||
+    inputEmailRegister.value === "" ||
+    inputConfirmRegister.value === "" ||
+    inputPasswordRegister.value === "") {
+    alert("vui lòng không để trống");} 
+    else if (
+        inputPasswordRegister.value !== inputConfirmRegister.value
+    )
+    {
+        alert("Confirm password mismatch!")
     }
-    var json = JSON.stringify(user);
-    localStorage.setItem(username, json);
-    alert("Registered Successfully")
-}
-
-
-
+    else  {
+    // array user
+    const user = {
+      username: inputUsernameRegister.value,
+      email: inputEmailRegister.value,
+      password: inputPasswordRegister.value,
+    };
+    let json = JSON.stringify(user);
+    localStorage.setItem(inputUsernameRegister.value, json);
+    alert("Đăng Ký Thành Công");
+    window.location.href = "login.html";
+  }
+});
