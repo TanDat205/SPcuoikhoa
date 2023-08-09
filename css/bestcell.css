@@ -1,0 +1,24 @@
+.content{
+    display: flex;
+}
+
+.collection-list{
+    display: fixed;
+    width: 250px;
+    margin: 30px;
+    height: 100vh;
+}
+
+.collection-sidebar__menu{
+    list-style: none;
+}
+
+.collection-link a{
+    text-decoration: none;
+    color: black;
+    line-height: 30px;
+}
+
+.collection-link a:hover{
+    color: #D9E2C3;
+}
