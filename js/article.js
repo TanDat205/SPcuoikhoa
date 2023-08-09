@@ -2,13 +2,13 @@ var products = [
   {
     name: "The Complete Gather Collection",
     image: "/img/The Complete Gather Collection.png",
-    hover: "/",
+    hover: "/img/The Complete Gather Collection (2).png",
     price: "30$",
   },
   {
     name: "Large Monitor Stand",
     image: "/img/Large Monitor Stand.png",
-    hover: "/",
+    hover: "/img/Large Monitor Stand (2).png",
     price: "30$",
   },
   {
@@ -33,46 +33,55 @@ var products = [
   {
     name: "Organizer Set",
     image: "/img/Organizer Set.png",
+    hover: "/img/Organizer Set (2).png",
     price: "30$",
   },
   {
     name: "Gather Note Tray",
     image: "/img/Gather Note Tray.png",
+    hover: "/img/Gather Note Tray (2).png",
     price: "30$",
   },
   {
     name: "Gather Solid Wood Lid",
     image: "/img/Gather Solid Wood Lid.png",
+    hover: "/img/Gather Solid Wood Lid (2).png",
     price: "30$",
   },
   {
     name: "Gather Wood Zigzag Tray",
     image: "/img/Gather Wood Zigzag Tray.png",
+    hover: "/img/Gather Wood Zigzag Tray (2).png",
     price: "30$",
   },
   {
-    name: "charcoal",
+    name: "Charcoal",
     image: "/img/hmm-charcoal-1.webp",
+    hover: "/img/hmm-charcoal-1 (2).webp",
     price: "30$",
   },
   {
     name: "Valet Tray",
     image: "/img/Valet Tray.png",
+    hover: "/img/Valet Tray (2).png",
     price: "30$",
   },
   {
     name: "Gather Note Tray",
     image: "/img/Gather Note Tray.png",
+    hover: "/img/Gather Note Tray (2).png",
     price: "30$",
   },
   {
     name: "Gather Wood Zigzag Tray",
     image: "/img/Gather Wood Zigzag Tray.png",
+    hover: "/img/Gather Wood Zigzag Tray (2).png",
     price: "30$",
   },
   {
     name: "Gather Solid Wood Lid",
     image: "/img/Gather Solid Wood Lid.png",
+    hover: "/img/Gather Solid Wood Lid (2).png",
     price: "30$",
   },
 ];
