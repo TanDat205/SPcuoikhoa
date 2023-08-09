@@ -258,7 +258,9 @@
     color: #756f6e;
     line-height: 1.6rem;
 }
-
+.banner img{
+    width: 100%;
+}
 /* cart-list */
 .header__cart-icon {
     position: relative;
@@ -287,14 +289,25 @@
     height: 50px;
 }
 #header__cart-shop h2{
-    display: fixed;
+    display: block;
     text-align: center;
     margin: auto;
 }
-
+.header__cart-click{
+    height: 20px;
+}
 .header__cart-close{
     cursor: pointer;
-    right: 0;
     font-size: 4rem;
     margin-left: 95%;
+}
+
+.header__cart-content{
+    display: flex;
+    justify-content: center;
+}
+
+.header__cart-conten p{
+    font-size: 80px;
+    margin: 0;
 }

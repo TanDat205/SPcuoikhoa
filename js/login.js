@@ -20,8 +20,9 @@ btnLogin.addEventListener("click", (e) => {
         user.password === inputPassword.value
       ) {
         alert("Successful Login");
-        window.location.href = "/html/home.html";
-      } else {
+        window.location.href = "/html/huhushop.html";
+      } 
+      else{
         alert("Login Failure");
       }
     }

@@ -1,0 +1,26 @@
+.content{
+    display: flex;
+}
+
+.collection-list{
+    display: fixed;
+    width: 250px;
+    margin: 30px;
+    height: 100vh;
+}
+
+.collection-sidebar__menu{
+    list-style: none;
+}
+.bestsell{
+    text-decoration: underline 1.5px ;
+}
+.collection-link a{
+    text-decoration: none;
+    color: black;
+    line-height: 30px;
+}
+
+.collection-link a:hover{
+    text-decoration: underline 1px;
+}

@@ -14,7 +14,6 @@
         <link rel="stylesheet" href="/css/glass.css">
         <link rel="stylesheet" href="/css/footer.css">
         <link rel="stylesheet" href="/css/article.css">
-        <link rel="stylesheet" href="/css/bestsell.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
         <link rel="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/gsap-latest-beta.min.js" href="">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" 
@@ -161,7 +160,7 @@
                                 </a>
                             </li>
                             <li class="navbar__list-item-name">
-                                <a href="bestsell.html" class="navbar__list-item-link">
+                                <a href="/html/bestsell.html" class="navbar__list-item-link">
                                     Best Sellers
                                 </a>
                             </li>                         
@@ -185,9 +184,11 @@
                                     <header id="header__cart-shop">
                                         <h2>Shopping Cart</h2> 
                                     </header>
-                                    <span class="header__cart-close">X</span>
-                                    <div class="header-cart-content">
-                                        <h1>Your Cart is Empty</h1>
+                                    <div class="header__cart-click">
+                                        <span class="header__cart-close">X</span>
+                                    </div>
+                                    <div class="header__cart-content">
+                                        <p>Your Cart is Empty</p>
                                     </div>
                                 </div>
                                 <script> 
@@ -217,36 +218,21 @@
 
         <div class="article">
             <div class="banner">
-                <img class="banner-img" src="/img/best-sellers.png" alt="" width="100%">
+                <img class="banner-img" src="/img/background.jpg" alt="" width="100%">
+                <div class="banner-title">
+                    <p>Your Desktop</p> <br> <p>Simplified</p>
+                </div>
             </div>
 
             <div class="content">
-                <div class="collection-list">
-                    <div class="page-sidebar">
-                        <ul class="collection-sidebar__menu">
-                            <li class="collection-link all">
-                                <a class href="/html/all.html">All</a>
-                            </li>
-                            <li class="collection-link analog">
-                                <a class href="/html/analog.html">Analog</a>
-                            </li>
-                            <li class="collection-link workshop">
-                                <a class href="/html/workspace.html">Workspace</a>
-                            </li>
-                            <li class="collection-link home">
-                                <a class="selected" href="/html/home.html">Home</a>
-                            </li>
-                            <li class="collection-link bestsell">
-                               <a class href="/collections/best-sellers">Best Sellers</a> 
-                            </li>
-                        </ul>
-                    </div>
+                <div class="article-text">
+                    The New Collection
                 </div>
                 <div id="productContainer">
                     <!-- Các sản phẩm sẽ được hiển thị ở đây -->
-                    <div id="notFoundMessage" class="not-found-message">Không tìm thấy sản phẩm</div>
                 </div>
-                <script src="/js/bestcell.js"></script>                
+                <div id="notFoundMessage" class="not-found-message">Không tìm thấy sản phẩm</div>
+                <script src="/js/article.js"></script>                
             </div>
         </div>
 

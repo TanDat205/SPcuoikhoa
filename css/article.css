@@ -1,9 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
 .banner{
-    position: relative;
-    font-family: 'Changa', sans-serif;
+  position: relative;
+  font-family: 'Changa', sans-serif;
 
+}
+.banner-img{
+  width: 1200px;
 }
 .banner-title{
     position: absolute;

@@ -12,7 +12,9 @@
 .collection-sidebar__menu{
     list-style: none;
 }
-
+.workspace{
+    text-decoration: underline 1.5px ;
+}
 .collection-link a{
     text-decoration: none;
     color: black;
@@ -20,5 +22,5 @@
 }
 
 .collection-link a:hover{
-    color: #D9E2C3;
+    text-decoration: underline 1px;
 }
