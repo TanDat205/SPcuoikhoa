@@ -310,3 +310,7 @@
 .header__cart-conten p{
     margin: 0;
 }
+
+#cart-list{
+    height: max-content;
+}

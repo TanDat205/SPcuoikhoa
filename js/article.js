@@ -64,28 +64,28 @@ var products = [
     price: "30$",
   },
   {
-    id:9,
+    id:10,
     name: "Charcoal",
     image: "/img/hmm-charcoal-1.webp",
     hover: "/img/hmm-charcoal-1 (2).webp",
     price: "30$",
   },
   {
-    id:10,
+    id:11,
     name: "Valet Tray",
     image: "/img/Valet Tray.png",
     hover: "/img/Valet Tray (2).png",
     price: "30$",
   },
   {
-    id:11,
+    id:12,
     name: "Gather Note Tray",
     image: "/img/Gather Note Tray.png",
     hover: "/img/Gather Note Tray (2).png",
     price: "30$",
   },
   {
-    id:12,
+    id:14,
     name: "Gather Wood Zigzag Tray",
     image: "/img/Gather Wood Zigzag Tray.png",
     hover: "/img/Gather Wood Zigzag Tray (2).png",
@@ -99,82 +99,6 @@ var products = [
     price: "30$",
   },
 ];
-
-// ...
-
-var cartList = document.getElementById("cart-list");
-var cartItems = [];
-
-function addToCart(product) {
-  var existingCartItem = cartItems.find(item => item.product.id === product.id);
-
-  if (existingCartItem) {
-    alert("Sản phẩm đã có trong giỏ hàng của bạn.");
-    return;
-  }
-
-  var cartItem = {
-    product: product,
-    quantity: 1,
-  };
-
-  cartItems.push(cartItem);
-  updateCart();
-  alert("Sản phẩm đã được thêm vào giỏ hàng.");
-}
-
-function updateCart() {
-  cartList.innerHTML = "";
-
-  cartItems.forEach(function (cartItem) {
-    var li = document.createElement("li");
-    li.textContent = cartItem.product.name + " - Quantity: " + cartItem.quantity;
-
-    var increaseButton = document.createElement("button");
-    increaseButton.textContent = "+";
-    increaseButton.addEventListener("click", function () {
-      changeQuantity(cartItem, 1);
-    });
-
-    var decreaseButton = document.createElement("button");
-    decreaseButton.textContent = "-";
-    decreaseButton.addEventListener("click", function () {
-      changeQuantity(cartItem, -1);
-    });
-
-    var removeButton = document.createElement("button");
-    removeButton.textContent = "Xóa";
-    removeButton.addEventListener("click", function () {
-      removeCartItem(cartItem);
-    });
-
-    li.appendChild(increaseButton);
-    li.appendChild(decreaseButton);
-    li.appendChild(removeButton);
-
-    cartList.appendChild(li);
-  });
-}
-
-function changeQuantity(cartItem, amount) {
-  cartItem.quantity += amount;
-  if (cartItem.quantity < 1) {
-    removeCartItem(cartItem);
-  }
-  updateCart();
-}
-
-function removeCartItem(cartItem) {
-  var index = cartItems.indexOf(cartItem);
-  if (index !== -1) {
-    cartItems.splice(index, 1);
-    updateCart();
-  }
-}
-
-displayProducts(products);
-
-// ...
 
 
 function displayProducts(productsToShow) {
@@ -207,20 +131,21 @@ function displayProducts(productsToShow) {
     productPrice.textContent = product.price;
     productCard.appendChild(productPrice);
 
-    var addToCartBtn = document.createElement("button");
-    addToCartBtn.className = "add-to-cart";
-    addToCartBtn.textContent = "Add to Cart";
-    productCard.appendChild(addToCartBtn);
-
-
-    addToCartBtn.addEventListener("click", function () {
+    var addToCartButton = document.createElement("button");
+    addToCartButton.className = "add-to-cart-button";
+    addToCartButton.textContent = "Thêm vào giỏ hàng";
+    addToCartButton.addEventListener("click", function() {
       addToCart(product);
+      updateCartCount(); // Cập nhật số lượng sản phẩm trong giỏ hàng
     });
-
+    productCard.appendChild(addToCartButton);
     // Thêm sản phẩm vào container
     productList.appendChild(productCard);
   }
 }
+
+
+
 
 var searchInput = document.getElementById("searchInput");
 var notFoundMessage = document.getElementById("notFoundMessage");
