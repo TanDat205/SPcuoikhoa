@@ -77,3 +77,47 @@
 #product-2{
   grid-column: span 2;
 }
+#cart-list {
+  list-style: none;
+  padding: 0;
+}
+
+.cart-item-image {
+  width: 30px;
+  height: 30px;
+  margin-right: 5px;
+}
+
+.cart-item-name {
+  margin-right: 10px;
+}
+
+.cart-item-price {
+  color: #888;
+}
+
+/* Style cho nút tăng/giảm số lượng */
+.cart-item button {
+  background-color: #f2f2f2;
+  border: none;
+  padding: 4px 8px;
+  margin: 0 4px;
+  cursor: pointer;
+}
+.cart-item-quantity {
+  color: #888;
+  font-size: 12px;
+}
+
+/* Style cho nút tăng/giảm số lượng và tổng số tiền */
+.cart-item button {
+  background-color: #f2f2f2;
+  border: none;
+  padding: 4px 8px;
+  margin: 0 4px;
+  cursor: pointer;
+}
+
+.cart-total {
+  font-weight: bold;
+}

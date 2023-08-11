@@ -100,7 +100,7 @@ var products = [
   },
 ];
 
-
+// add to cart
 function displayProducts(productsToShow) {
   var productList = document.getElementById("productList");
   productList.innerHTML = "";
@@ -127,22 +127,183 @@ function displayProducts(productsToShow) {
     productCard.appendChild(productName);
 
     var productPrice = document.createElement("p");
-    productPrice.className = "price-item"
+    productPrice.className = "price-item";
     productPrice.textContent = product.price;
     productCard.appendChild(productPrice);
 
     var addToCartButton = document.createElement("button");
     addToCartButton.className = "add-to-cart-button";
-    addToCartButton.textContent = "Thêm vào giỏ hàng";
-    addToCartButton.addEventListener("click", function() {
-      addToCart(product);
-      updateCartCount(); // Cập nhật số lượng sản phẩm trong giỏ hàng
-    });
+    addToCartButton.textContent = "Add to Cart";
+    addToCartButton.setAttribute("data-product-id", product.id); // Lưu trữ ID sản phẩm trong thuộc tính data
+    addToCartButton.addEventListener("click", addToCart);
     productCard.appendChild(addToCartButton);
-    // Thêm sản phẩm vào container
+
     productList.appendChild(productCard);
   }
 }
+var cartList = document.getElementById("cart-list");
+
+function addToCart(event) {
+  var productId = event.target.getAttribute("data-product-id");
+  var productToAdd = products.find(product => product.id === parseInt(productId));
+
+  if (productToAdd) {
+    var cartItem = document.createElement("li");
+    cartItem.textContent = productToAdd.name;
+    cartList.appendChild(cartItem);
+  }
+}
+
+//tăng giảm
+function increaseQuantity(product) {
+  var cartItem = cartItems.find(item => item.id === product.id);
+  if (cartItem) {
+    cartItem.quantity += 1;
+    updateCartDisplay();
+    updateCartTotal();
+    updateCartItemCount();
+  }
+}
+
+function decreaseQuantity(product) {
+  var cartItem = cartItems.find(item => item.id === product.id);
+  if (cartItem && cartItem.quantity > 1) {
+    cartItem.quantity -= 1;
+    updateCartDisplay();
+    updateCartTotal();
+    updateCartItemCount();
+  }
+}
+
+
+function removeFromCart(product) {
+  var cartIndex = cartItems.findIndex(item => item.id === product.id);
+  if (cartIndex !== -1) {
+    cartItems.splice(cartIndex, 1);
+    updateCartDisplay();
+    updateCartTotal();
+    updateCartItemCount();
+  }
+}
+
+
+
+// add price and img
+var cartItems = [];
+function addToCart(event) {
+  var productId = event.target.getAttribute("data-product-id");
+
+  var productToAdd = products.find(product => product.id === parseInt(productId));
+
+  if (productToAdd) {
+    var existingCartItem = cartItems.find(item => item.id === productToAdd.id);
+
+    if (existingCartItem) {
+      alert("This product is already in your cart")
+    } else {
+      // Sản phẩm chưa có trong giỏ hàng
+      productToAdd.quantity = 1;
+      cartItems.push(productToAdd);
+    }
+
+    updateCartDisplay();
+    updateCartTotal();
+  }
+}
+
+
+function updateCartDisplay() {
+  cartList.innerHTML = "";
+
+
+  for (var i = 0; i < cartItems.length; i++) {
+    var cartItem = document.createElement("li");
+    cartItem.className = "product-item"
+    var cartProduct = cartItems[i];
+
+    var cartItemImage = document.createElement("img");
+    cartItemImage.className = "cart-item-image";
+    cartItemImage.src = cartProduct.image;
+    cartItem.appendChild(cartItemImage);
+
+    var cartItemName = document.createElement("span");
+    cartItemName.className = "cart-item-name";
+    cartItemName.textContent = cartProduct.name;
+    cartItem.appendChild(cartItemName);
+
+    var cartItemPrice = document.createElement("span");
+    cartItemPrice.className = "cart-item-price";
+    cartItemPrice.textContent = cartProduct.price;
+    cartItem.appendChild(cartItemPrice);
+
+    //tăng giảm
+    var increaseButton = document.createElement("button");
+    increaseButton.className = "cart-quantity-button";
+    increaseButton.textContent = "+";
+    increaseButton.addEventListener("click", () => increaseQuantity(cartProduct));
+    cartItem.appendChild(increaseButton);
+
+    var decreaseButton = document.createElement("button");
+    decreaseButton.className = "cart-quantity-button";
+    decreaseButton.textContent = "-";
+    decreaseButton.addEventListener("click", () => decreaseQuantity(cartProduct));
+    cartItem.appendChild(decreaseButton);
+
+    var removeButton = document.createElement("button");
+    removeButton.className = "cart-remove-button";
+    removeButton.textContent = "Remove";
+    removeButton.addEventListener("click", () => removeFromCart(cartProduct));
+    cartItem.appendChild(removeButton);
+
+
+    //đếm
+    var cartItemQuantity = document.createElement("span");
+    cartItemQuantity.className = "cart-item-quantity";
+    cartItemQuantity.textContent = "Quantity: " + cartProduct.quantity;
+    cartItem.appendChild(cartItemQuantity);
+
+    cartList.appendChild(cartItem);
+  }
+}
+
+
+//price
+function updateCartTotal() {
+  var totalAmountElement = document.getElementById("total-amount");
+  var totalAmount = cartItems.reduce((total, item) => total + parseFloat(item.price.replace("$", "")) * item.quantity, 0);
+  totalAmountElement.textContent = "$" + totalAmount.toFixed(2);
+}
+
+// đếm
+
+function updateCartItemCount() {
+  var itemCountElement = document.getElementById("cart-item-count");
+  var totalItemCount = cartItems.reduce((total, item) => total + item.quantity, 0);
+  itemCountElement.textContent = totalItemCount;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

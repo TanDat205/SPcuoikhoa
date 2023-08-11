@@ -14,6 +14,8 @@
         <link rel="stylesheet" href="/css/glass.css">
         <link rel="stylesheet" href="/css/footer.css">
         <link rel="stylesheet" href="/css/article.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
         <link rel="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/gsap-latest-beta.min.js" href="">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" 
@@ -177,40 +179,54 @@
                             </li>
 
                             <li class="header__cart-icon">
-                                <a href="" class="header__cart-icon-link">
-                                    <i class="fa-solid fa-cart-shopping"></i>
-                                </a>
-                                <div id="header__cart-list">
-                                    <header id="header__cart-shop">
-                                        <h2>Shopping Cart</h2> 
-                                    </header>
-                                    <div class="header__cart-click">
-                                        <span class="header__cart-close">X</span>
+                                <i class="fa-solid fa-cart-shopping" id="cartIcon"></i>
+                                <div class="header__cart-list header__cart-list--no-cart" id="cartContainer">
+                                    <button class="close-button" id="closeButton">&times;</button>
+                                    <p class="header__cart-list-no-cart">Shopping Cart</p>
+                                    <ul id="cart-list"></ul>
+                                    <span class="tick-icon" id="tickIcon">&#10004;</span>
+                                    
+                                    <div id="cart-total">
+                                        Total: <span id="total-amount">$0</span>
                                     </div>
-                                    <div id="cartContainer">
-                                        <p>Your Cart</p>
-                                        <ul id="cart-list"></ul>
+
+                                    <div id="cart-count">
+                                        Cart: <span id="cart-item-count">0</span> items
+                                    </div>
+                                      
+
+                                    <div class="checkout">
+                                        <button class="btn-checkout" type="submit">Go to Checkout</button>
                                     </div>
                                 </div>
-                                <script> 
-                                window.onload = function() { 
-                                    var link = document.querySelector(".header__cart-icon-link"); 
-                                    var list = document.getElementById("header__cart-list"); 
-                                    var close = document.querySelector(".header__cart-close"); 
-                                    link.addEventListener("click", function(event) { 
-                                        event.preventDefault(); 
-                                        if (list.style.display == "none") { 
-                                            list.style.display = "block"; } 
-                                            else { list.style.display = "none"; 
-                                        } 
-                                    }); 
-                                    close.addEventListener("click", function(event) { 
-                                        event.preventDefault(); 
-                                        list.style.display = "none"; 
-                                    }); 
-                                }; 
-                                </script>
+                        
                             </li>
+                              
+                              
+                            <script >
+                               const cartIcon = document.getElementById('cartIcon');
+                                const cartContainer = document.getElementById('cartContainer');
+                                const closeButton = document.getElementById('closeButton');
+                                const tickIcon = document.getElementById('tickIcon');
+
+                                cartIcon.addEventListener('click', () => {
+                                    cartContainer.style.display = 'block';
+                                });
+
+                                closeButton.addEventListener('click', () => {
+                                    cartContainer.style.display = 'none';
+                                });
+
+                                tickIcon.addEventListener('click', () => {
+                                    cartContainer.style.display = 'none';
+                                });
+                            </script>
+                              
+                              
+                              
+                              
+                                
+                                
                         </ul>
                     </div>
                 </div>
