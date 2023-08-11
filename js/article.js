@@ -141,6 +141,7 @@ function displayProducts(productsToShow) {
     productList.appendChild(productCard);
   }
 }
+
 var cartList = document.getElementById("cart-list");
 
 function addToCart(event) {
@@ -161,7 +162,6 @@ function increaseQuantity(product) {
     cartItem.quantity += 1;
     updateCartDisplay();
     updateCartTotal();
-    updateCartItemCount();
   }
 }
 
@@ -169,12 +169,12 @@ function decreaseQuantity(product) {
   var cartItem = cartItems.find(item => item.id === product.id);
   if (cartItem && cartItem.quantity > 1) {
     cartItem.quantity -= 1;
-    updateCartDisplay();
-    updateCartTotal();
-    updateCartItemCount();
+  } else if (cartItem && cartItem.quantity === 1) {
+    removeFromCart(cartItem); 
   }
+  updateCartDisplay();
+  updateCartTotal();
 }
-
 
 function removeFromCart(product) {
   var cartIndex = cartItems.findIndex(item => item.id === product.id);
@@ -182,14 +182,40 @@ function removeFromCart(product) {
     cartItems.splice(cartIndex, 1);
     updateCartDisplay();
     updateCartTotal();
-    updateCartItemCount();
   }
 }
 
-
+function updateCartTotal() {
+  var total = cartItems.reduce((sum, item) => sum + parseFloat(item.price.replace('$', '')) * item.quantity, 0);
+  var totalElement = document.getElementById("cart-total");
+  totalElement.textContent = "Total: $" + total.toFixed(2);
+}
 
 // add price and img
 var cartItems = [];
+// function addToCart(event) {
+//   var productId = event.target.getAttribute("data-product-id");
+
+//   var productToAdd = products.find(product => product.id === parseInt(productId));
+
+//   if (productToAdd) {
+//     var existingCartItem = cartItems.find(item => item.id === productToAdd.id);
+
+//     if (existingCartItem) {
+//       alert("This product is already in your cart")
+//     } else {
+//       // Sản phẩm chưa có trong giỏ hàng
+//       productToAdd.quantity = 0 ;
+//       productToAdd.checked = true;
+//       cartItems.push(productToAdd);
+
+//     }
+
+//     updateCartDisplay();
+//     updateCartTotal();
+//   }
+// }
+
 function addToCart(event) {
   var productId = event.target.getAttribute("data-product-id");
 
@@ -202,8 +228,10 @@ function addToCart(event) {
       alert("This product is already in your cart")
     } else {
       // Sản phẩm chưa có trong giỏ hàng
-      productToAdd.quantity = 1;
-      cartItems.push(productToAdd);
+      var clonedProduct = Object.assign({}, productToAdd); // Create a copy of the product
+      clonedProduct.quantity = 1; // Initialize quantity
+      clonedProduct.checked = true;
+      cartItems.push(clonedProduct);
     }
 
     updateCartDisplay();
@@ -212,74 +240,71 @@ function addToCart(event) {
 }
 
 
+
+
 function updateCartDisplay() {
   cartList.innerHTML = "";
 
-
   for (var i = 0; i < cartItems.length; i++) {
     var cartItem = document.createElement("li");
-    cartItem.className = "product-item"
+    cartItem.className = "product-item";
+
     var cartProduct = cartItems[i];
+
+    var cartItemContainer = document.createElement("div"); // Thẻ div chứa các phần tử liên quan
+    cartItemContainer.className = "cart-item-container";
 
     var cartItemImage = document.createElement("img");
     cartItemImage.className = "cart-item-image";
     cartItemImage.src = cartProduct.image;
-    cartItem.appendChild(cartItemImage);
+    cartItemContainer.appendChild(cartItemImage);
 
     var cartItemName = document.createElement("span");
     cartItemName.className = "cart-item-name";
     cartItemName.textContent = cartProduct.name;
-    cartItem.appendChild(cartItemName);
+    cartItemContainer.appendChild(cartItemName);
 
-    var cartItemPrice = document.createElement("span");
+    var cartItemPrice = document.createElement("span"); // Giá sản phẩm
     cartItemPrice.className = "cart-item-price";
     cartItemPrice.textContent = cartProduct.price;
-    cartItem.appendChild(cartItemPrice);
+    cartItem.appendChild(cartItemImage);
+    
+    var cartItemControls = document.createElement("div"); // Thẻ div chứa nút tăng/giảm số lượng và nút xóa
+    cartItemControls.className = "cart-item-controls";
 
-    //tăng giảm
     var increaseButton = document.createElement("button");
     increaseButton.className = "cart-quantity-button";
     increaseButton.textContent = "+";
     increaseButton.addEventListener("click", () => increaseQuantity(cartProduct));
-    cartItem.appendChild(increaseButton);
+    cartItemControls.appendChild(increaseButton);
 
     var decreaseButton = document.createElement("button");
     decreaseButton.className = "cart-quantity-button";
     decreaseButton.textContent = "-";
     decreaseButton.addEventListener("click", () => decreaseQuantity(cartProduct));
-    cartItem.appendChild(decreaseButton);
+    cartItemControls.appendChild(decreaseButton);
 
     var removeButton = document.createElement("button");
     removeButton.className = "cart-remove-button";
     removeButton.textContent = "Remove";
     removeButton.addEventListener("click", () => removeFromCart(cartProduct));
-    cartItem.appendChild(removeButton);
+    cartItemControls.appendChild(removeButton);
 
-
-    //đếm
     var cartItemQuantity = document.createElement("span");
     cartItemQuantity.className = "cart-item-quantity";
     cartItemQuantity.textContent = "Quantity: " + cartProduct.quantity;
-    cartItem.appendChild(cartItemQuantity);
+    cartItemControls.appendChild(cartItemQuantity);
 
+    cartItemContainer.appendChild(cartItemPrice);
+    cartItemContainer.appendChild(cartItemControls);
+
+    cartItem.appendChild(cartItemContainer);
     cartList.appendChild(cartItem);
   }
 }
-
-
-//price
-function updateCartTotal() {
-  var totalAmountElement = document.getElementById("total-amount");
-  var totalAmount = cartItems.reduce((total, item) => total + parseFloat(item.price.replace("$", "")) * item.quantity, 0);
-  totalAmountElement.textContent = "$" + totalAmount.toFixed(2);
-}
-
-// đếm
-
 function updateCartItemCount() {
-  var itemCountElement = document.getElementById("cart-item-count");
-  var totalItemCount = cartItems.reduce((total, item) => total + item.quantity, 0);
-  itemCountElement.textContent = totalItemCount;
+  var totalItemsElement = document.getElementById("cart-item-count");
+  totalItemsElement.textContent = getTotalQuantity();
 }
 
 
