@@ -33,7 +33,7 @@
   margin-top: 50px;
   display: grid;
   grid-template-columns: repeat(4, minmax(100px, 300px));
-  gap: 10px;
+  gap: 20px 10px;
   margin-left: 20px;
 }
 
@@ -71,4 +71,9 @@
 
 .add-to-cart:hover{
   background-color: rgb(51, 51, 51);
+}
+
+#product-1,
+#product-2{
+  grid-column: span 2;
 }
