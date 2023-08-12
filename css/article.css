@@ -38,6 +38,7 @@
 }
 
 .product-card {
+  display: block;
   cursor: pointer;
   margin: auto;
   position: relative;
@@ -120,4 +121,18 @@
 
 .cart-total {
   font-weight: bold;
+}
+
+
+.add-to-cart-button{
+  border: 1px solid;
+  height: 35px;
+  background-color: black;
+  color: #fff;
+  width: 135px;
+  border-radius: 50px;
+}
+
+.add-to-cart-button:hover{
+  background-color: rgb(40, 40, 40);
 }

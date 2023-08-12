@@ -178,37 +178,41 @@
                             </li>
 
                             <li class="header__cart-icon">
-                                <a href="" class="header__cart-icon-link">
-                                    <i class="fa-solid fa-cart-shopping"></i>
-                                </a>
-                                <div id="header__cart-list">
-                                    <header id="header__cart-shop">
-                                        <h2>Shopping Cart</h2> 
-                                    </header>
-                                    <div class="header__cart-click">
-                                        <span class="header__cart-close">X</span>
+                                <i class="fa-solid fa-cart-shopping" id="cartIcon"></i>
+                                <div class="header__cart-list header__cart-list--no-cart" id="cartContainer">
+                                    <button class="close-button" id="closeButton">&times;</button>
+                                    <p class="header__cart-list-no-cart">Shopping Cart</p>
+                                    <ul id="cart-list"></ul>
+                                    <span class="tick-icon" id="tickIcon">&#10004;</span>
+                                    
+                                    <div id="cart-total">
+                                        Total: <span id="total-amount">$0</span>
                                     </div>
-                                    <div class="header__cart-content">
-                                        <p>Your Cart is Empty</p>
+
+                                    
+                                      
+
+                                    <div class="checkout">
+                                        <button class="btn-checkout" type="submit">Go to Checkout</button>
                                     </div>
                                 </div>
-                                <script> 
-                                window.onload = function() { 
-                                    var link = document.querySelector(".header__cart-icon-link"); 
-                                    var list = document.getElementById("header__cart-list"); 
-                                    var close = document.querySelector(".header__cart-close"); 
-                                    link.addEventListener("click", function(event) { 
-                                        event.preventDefault(); 
-                                        if (list.style.display == "none") { 
-                                            list.style.display = "block"; } 
-                                            else { list.style.display = "none"; 
-                                        } 
-                                    }); 
-                                    close.addEventListener("click", function(event) { 
-                                        event.preventDefault(); 
-                                        list.style.display = "none"; 
-                                    }); 
-                                }; 
+                                <script >
+                                    const cartIcon = document.getElementById('cartIcon');
+                                     const cartContainer = document.getElementById('cartContainer');
+                                     const closeButton = document.getElementById('closeButton');
+                                     const tickIcon = document.getElementById('tickIcon');
+     
+                                     cartIcon.addEventListener('click', () => {
+                                         cartContainer.style.display = 'block';
+                                     });
+     
+                                     closeButton.addEventListener('click', () => {
+                                         cartContainer.style.display = 'none';
+                                     });
+     
+                                     tickIcon.addEventListener('click', () => {
+                                         cartContainer.style.display = 'none';
+                                     });
                                 </script>
                             </li>
                         </ul>
@@ -247,8 +251,8 @@
                 <div class="wap">
                     <div id="notFoundMessage" class="not-found-message">Không tìm thấy sản phẩm</div>
                     
-                    <div id="productContainer">
-                    <!-- Các sản phẩm sẽ được hiển thị ở đây -->
+                    <div id="productList" class="product-list">
+                        <!-- Các sản phẩm sẽ được hiển thị ở đây -->
                     </div>
                 </div>                
                 <script src="/js/home.js"></script>                

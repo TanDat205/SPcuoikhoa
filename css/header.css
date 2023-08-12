@@ -336,7 +336,6 @@
 
 #cart-count, #cart-total{
     display: flex;
-    left: 99%;
 }
 #cart-total{
     justify-content: space-between;

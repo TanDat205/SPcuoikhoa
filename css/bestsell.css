@@ -3,10 +3,10 @@
 }
 
 .collection-list{
-    display: fixed;
-    width: 250px;
-    margin: 30px;
-    height: max-content;
+    border-right: 1px solid;
+    width: 150px;
+    margin-top: 40px;
+    margin-left: 10px;
 }
 
 .collection-sidebar__menu{
